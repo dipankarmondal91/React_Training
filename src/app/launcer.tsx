@@ -7,7 +7,9 @@ import ProtectedRoute from "./protectedroute";
 import ErrorPage from "./error-page";
 
 function Launcher() {
-    return ( <Routes>
+    return (
+        
+        <Routes>
         <Route path="/" element={<ProtectedRoute>
             <Display />
             </ProtectedRoute>} />

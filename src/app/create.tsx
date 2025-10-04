@@ -39,16 +39,23 @@ function Create() {
     return ( <>
     <h1> create</h1>
         <div>
+            <h3>
         <label>No:</label>
         <input type="number" name="no" value={employee.no} onChange={onChange} />
+        </h3>
         </div>
+        
         <div>
+        <h3>
         <label>Name:</label>
         <input type="text" name="name" value={employee.name} onChange={onChange} />
+        </h3>
         </div>
         <div>
+            <h3>
         <label>Address:</label>
         <input type="text" name="address" value={employee.address} onChange={onChange} />
+        </h3>
         </div>
         <div>
             {error && <p style={{color:"red"}}>{error}</p>}

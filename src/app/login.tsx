@@ -11,6 +11,7 @@ interface ICredentials {
 function Login() {
     const [credentials,setCredential] = useState<ICredentials>({username:"",password:""});
     const navigate = useNavigate();
+    const [error,setError] = useState<string>("");
 
     const onTextChange = (args:BaseSyntheticEvent)=>{
         if(!args.target.name) return;
@@ -22,6 +23,10 @@ function Login() {
     }
     const login=()=>{
         console.log(credentials);
+        if(credentials.username.trim()==="" || credentials.password.trim()===""){
+            setError("All fields are required");
+            return;
+        }
         axios.post("http://localhost:9999/signin",credentials).then((result)=>{
             console.log(result.data);
             if(result.data.jwtoken!=undefined){
@@ -39,11 +44,12 @@ function Login() {
     };
     return (  <>
     <h1>Login Here</h1>
-    username: <input type="text" name="username" value={credentials.username} onChange={onTextChange} /><br></br>
-    password: <input type="password" name="password" value={credentials.password} onChange={onTextChange}/><br></br>
+    <h3>username: <input type="text" name="username" value={credentials.username} onChange={onTextChange} /><br></br></h3>
+    <h3>password: <input type="password" name="password" value={credentials.password} onChange={onTextChange}/><br></br></h3>
     <hr></hr>
     <button onClick={login}>Sign In</button>
-    </>);
+    <div style={{color:"red"}}>{error}</div>
+        </>);
 }
 
 export default Login;
