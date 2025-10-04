@@ -27,12 +27,21 @@ function Display() {
 
     return ( <>
     <div style={{margin:"0 auto",width:"100%",alignContent:"center"}}>
+    <div>
+            <button onClick={()=>{
+                localStorage.removeItem("token");
+                localStorage.removeItem("loggedIn");
+                localStorage.removeItem("username");
+                navigate("/login");
+            }}>Logout</button>
+        </div>
         <h1>Employees</h1>
         <div>
             <button onClick={()=>{
                 navigate(`/create`);
             }}>Create</button>
         </div>
+       
         <table>
             <thead>
                 <tr>
