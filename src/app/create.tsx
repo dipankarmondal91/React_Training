@@ -37,6 +37,14 @@ function Create() {
 
     }
     return ( <>
+     <div>
+            <button onClick={()=>{
+                localStorage.removeItem("token");
+                localStorage.removeItem("loggedIn");
+                localStorage.removeItem("username");
+                navigate("/login");
+            }}>Logout</button>
+        </div>
     <h1> create</h1>
         <div>
             <h3>

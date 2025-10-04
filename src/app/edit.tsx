@@ -52,6 +52,14 @@ function Edit() {
     
         }
     return ( <>
+     <div>
+            <button onClick={()=>{
+                localStorage.removeItem("token");
+                localStorage.removeItem("loggedIn");
+                localStorage.removeItem("username");
+                navigate("/login");
+            }}>Logout</button>
+        </div>
     <h1>Edit</h1>
         <div>
         <label>No:</label>
